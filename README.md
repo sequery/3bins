@@ -1,70 +1,77 @@
-# Getting Started with Create React App
+# 3 Bins Project
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This React application displays a rotating set of images based on the selected bin type (Landfill, Compost, Recycle). Every fourth set includes a congratulatory message with specific styles applied.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- Rotates between sets of images every 9 seconds (6 seconds pause + 3 seconds transition).
+- Displays different sets of images based on the selected bin type.
+- Includes a congratulatory message in every fourth set with specific styles.
 
-### `npm start`
+## Installation
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+1. Clone the repository:
+    ```sh
+    git clone https://github.com/sequery/3bins.git
+    cd 3bins
+    ```
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+2. Install the dependencies:
+    ```sh
+    npm install
+    ```
 
-### `npm test`
+## Usage
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. Start the development server:
+    ```sh
+    npm start
+    ```
 
-### `npm run build`
+2. Open your browser and navigate to `http://localhost:3000`.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Project Structure
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- `src/App.js`: Main React component that handles the image rotation logic.
+- `src/App.css`: CSS file for styling the application.
+- `src/data.json`: JSON file containing the image data.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Data Structure
 
-### `npm run eject`
+The `data.json` file contains an array of image objects with the following structure:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```json
+{
+    "images": [
+        {
+            "src": "path/to/image.png",
+            "alt": "Image description"
+        },
+        ...
+    ]
+}
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Example
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Here is an example of how the images are grouped and displayed:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- Landfill Bin:
 
-## Learn More
+    - Images: image1.png, image2.png, image3.png
+    - Congratulatory Message: "Every small step counts! Reducing landfill waste by even 10% can prevent millions of tons of methane emissions, a greenhouse gas 28 times more potent than CO₂."
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- Compost Bin:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+    - Images: image4.png, image5.png, image6.png
+    - Congratulatory Message: "Congrats! Composting just one ton of organic waste prevents the release of 3 metric tons of CO₂ equivalent into the atmosphere, helping fight climate change!"
 
-### Code Splitting
+- Recycle Bin:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+    - Images: image7.png, image8.png, image9.png
+    - Congratulatory Message: "Great job! Recycling one ton of paper saves 17 trees, 7,000 gallons of water, 380 gallons of oil, and enough energy to power the average home for 6 months."
 
-### Analyzing the Bundle Size
+## Authors
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- @sequery
+- @nury25

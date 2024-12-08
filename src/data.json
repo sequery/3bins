@@ -1,0 +1,124 @@
+{
+    "images": [
+        {
+            "src": "images/landfill/image1.png",
+            "alt": "Food-Soiled Plastic"
+        },
+        {
+            "src": "images/landfill/image2.png",
+            "alt": "Loose Lids and Caps (less than 3 inches wide)"
+        },
+        {
+            "src": "images/landfill/image3.png",
+            "alt": "Loose Plastic Bags"
+        },
+        {
+            "src": "images/landfill/image4.png",
+            "alt": "Multi-Material Packaging"
+        },
+        {
+            "src": "images/landfill/image5.png",
+            "alt": "No Electronics or Hazardous Waste"
+        },
+        {
+            "src": "images/landfill/image6.png",
+            "alt": "No Food - Please Compost"
+        },
+        {
+            "src": "images/landfill/image7.png",
+            "alt": "No Liquids"
+        },
+        {
+            "src": "images/landfill/image8.png",
+            "alt": "Plastic Utensils"
+        },
+        {
+            "src": "images/landfill/image9.png",
+            "alt": "Receipts"
+        },
+        {
+            "src": "images/landfill/image10.png",
+            "alt": "Styrofoam"
+        },
+        {
+            "src": "images/landfill/image11.png",
+            "alt": "Snack Wrappers"
+        },
+        {
+            "src": "images/landfill/image1.png",
+            "alt": "Food-Soiled Plastic"
+        },
+        {
+            "src": "images/compost/image1.png",
+            "alt": "Commercially Compostable Items: Compostable cups, bags, and utensils"
+        },
+        {
+            "src": "images/compost/image2.png",
+            "alt": "Food Soiled Paper: Used napkins, tissues, and paper towels"
+        },
+        {
+            "src": "images/compost/image3.png",
+            "alt": "Food Waste: Pizza crusts, fruit peels, vegetable scraps, and bones"
+        },
+        {
+            "src": "images/compost/image4.png",
+            "alt": "No Metals, No Plastics: Items like cans, plastic wrappers, and utensils"
+        },
+        {
+            "src": "images/compost/image5.png",
+            "alt": "No Produce Stickers: Stickers found on fruits or vegetables"
+        },
+        {
+            "src": "images/compost/image6.png",
+            "alt": "No Wrappers: Items like candy wrappers or chip bags."
+        },
+        {
+            "src": "images/compost/image7.png",
+            "alt": "Non-Treated Wood and Wood Fiber: Chopsticks, wooden utensils, and compostable trays"
+        },
+        {
+            "src": "images/compost/image8.png",
+            "alt": "Paper Scraps: Small torn pieces of paper"
+        },
+        {
+            "src": "images/compost/image1.png",
+            "alt": "Commercially Compostable Items: Compostable cups, bags, and utensils"
+        },
+        {
+            "src": "images/recycle/image1.png",
+            "alt": "Glass Bottles and Jars"
+        },
+        {
+            "src": "images/recycle/image2.png",
+            "alt": "Plastic Takeout Containers"
+        },
+        {
+            "src": "images/recycle/image3.png",
+            "alt": "No Food or Liquids"
+        },
+        {
+            "src": "images/recycle/image4.png",
+            "alt": "Metal Cans and Trays"
+        },
+        {
+            "src": "images/recycle/image5.png",
+            "alt": "Plastic Bottles"
+        },
+        {
+            "src": "images/recycle/image6.png",
+            "alt": "No Small Plastics"
+        },
+        {
+            "src": "images/recycle/image7.png",
+            "alt": "No Plastic Bags"
+        },
+        {
+            "src": "images/recycle/image8.png",
+            "alt": "No Snack Wrappers"
+        },
+        {
+            "src": "images/recycle/image9.png",
+            "alt": "Cardboard and Cartons"
+        }
+    ]
+}
