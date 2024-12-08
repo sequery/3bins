@@ -73,5 +73,6 @@ Here is an example of how the images are grouped and displayed:
 
 ## Authors
 
-- @sequery
-- @nury25
+- [Aga](https://github.com/sequery)
+- [Nury](https://github.com/nury25)
+- Adam
