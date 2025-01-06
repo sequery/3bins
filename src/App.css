@@ -1,48 +1,46 @@
-/* General body styling */
 body {
   margin: 0;
   overflow: hidden;
-  background-color: #48ceff; /* Light blue background */
+  background-color: #48ceff;
 }
 
-/* Container for the image sets */
 .container {
   position: relative;
-  height: 100vh;
   width: 100vw;
+  height: 100vh;
+  overflow: hidden; /* hides slides that move off-screen */
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-/* Each image set styling */
+/* The .image-set elements are absolutely positioned within .container. */
 .image-set {
   position: absolute;
   display: flex;
-  flex-direction: column; /* Stack images and headings vertically */
+  flex-direction: column;
   align-items: center;
-  gap: 30px; /* Space between items in a set */
-  opacity: 0; /* Initially hidden */
-  top: -100px; /* Start off-screen */
-  transition: top 2s ease, opacity 2s ease; /* Increased transition durations for slower movement */
+  gap: 30px;
+  opacity: 0;
+  top: -100%;
+  transition: top 3s ease, opacity 3s ease;
+  /* We apply transform inline in JS:
+     transform: translateY(-50%);
+   */
 }
 
-/* Individual image container */
 .image-container {
   text-align: center;
-  white-space: wrap;
   width: 800px;
 }
 
-/* Headings above the images */
 h2 {
   font-size: 24px;
   color: #ffffff;
   margin: 0;
 }
 
-/* Individual image styling */
 .image {
-  width: 200px; /* Adjust image size */
+  width: 200px;
   transition: transform 0.5s;
 }
