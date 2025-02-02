@@ -1,10 +1,6 @@
 {
     "images": [
         {
-            "src": "images/landfill/image1.png",
-            "alt": "Food-Soiled Plastic"
-        },
-        {
             "src": "images/landfill/image2.png",
             "alt": "Loose Lids and Caps (less than 3 inches wide)"
         },
@@ -35,18 +31,6 @@
         {
             "src": "images/landfill/image9.png",
             "alt": "Receipts"
-        },
-        {
-            "src": "images/landfill/image10.png",
-            "alt": "Styrofoam"
-        },
-        {
-            "src": "images/landfill/image11.png",
-            "alt": "Snack Wrappers"
-        },
-        {
-            "src": "images/landfill/image1.png",
-            "alt": "Food-Soiled Plastic"
         },
         {
             "src": "images/compost/image1.png",
