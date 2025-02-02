@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import "./App.css";
 import data from "./data.json";
 
@@ -20,26 +20,32 @@ function App() {
     Recycle: "#48ceff",
   };
 
-  // Get all images and fun facts from the imported data
+  // Get all images from the imported data.
   const images = data.images;
-  let funFactsArray = [];
-  let startIndex = 0;
-  let imageFile = "";
 
-  // Set the parameters based on the current bin.
-  if (currentBin === "Landfill") {
-    startIndex = 0; // images 0..8 (3 slides of 3 images)
-    funFactsArray = data.funFacts.landfill;
-    imageFile = "Landfill.png";
-  } else if (currentBin === "Compost") {
-    startIndex = 9; // images 9..17
-    funFactsArray = data.funFacts.compost;
-    imageFile = "Compost.png";
-  } else if (currentBin === "Recycle") {
-    startIndex = 18; // images 18..26
-    funFactsArray = data.funFacts.recycle;
-    imageFile = "Recycle.png";
-  }
+  // Wrap the initialization of funFactsArray, startIndex, and imageFile in useMemo
+  const { funFactsArray, startIndex, imageFile } = useMemo(() => {
+    let funFactsArray = [];
+    let startIndex = 0;
+    let imageFile = "";
+
+    // Set the parameters based on the current bin.
+    if (currentBin === "Landfill") {
+      startIndex = 0; // images 0..8 (3 slides of 3 images)
+      funFactsArray = data.funFacts.landfill;
+      imageFile = "Landfill.png";
+    } else if (currentBin === "Compost") {
+      startIndex = 9; // images 9..17
+      funFactsArray = data.funFacts.compost;
+      imageFile = "Compost.png";
+    } else if (currentBin === "Recycle") {
+      startIndex = 18; // images 18..26
+      funFactsArray = data.funFacts.recycle;
+      imageFile = "Recycle.png";
+    }
+
+    return { funFactsArray, startIndex, imageFile };
+  }, [currentBin]);
 
   // Initialize currentFunFact on first render (if not set yet)
   useEffect(() => {
