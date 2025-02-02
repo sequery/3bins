@@ -15,7 +15,7 @@ function App() {
 
   // Background colors per bin
   const binBackgrounds = {
-    Landfill: "#873929",
+    Landfill: "#4c4b4b",
     Compost: "#5fa94f",
     Recycle: "#48ceff",
   };

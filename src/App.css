@@ -31,16 +31,16 @@ body {
 
 .image-container {
   text-align: center;
-  width: 800px;
+  width: 1200px;
 }
 
 h2 {
-  font-size: 24px;
+  font-size: 42px;
   color: #ffffff;
   margin: 0;
 }
 
 .image {
-  width: 200px;
+  width: 350px;
   transition: transform 0.5s;
 }
