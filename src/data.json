@@ -120,5 +120,30 @@
             "src": "images/recycle/image9.png",
             "alt": "Cardboard and Cartons"
         }
-    ]
+    ],
+    "funFacts": {
+        "landfill": [
+            "The U.S. is the #1 trash-producing country in the world. This means that 5% of the world's people generate 40% of the world's waste.",
+            "Plastic bags and other plastic garbage thrown into the ocean kill as many as 1,000,000 sea creatures every year.",
+            "Plastic production has sharply increased over the last 70 years. In 1950, the world produced just two million tonnes. It now produces over 450 million tonnes.",
+            "Only 9% of plastic produced each year is properly recycled. Half of the world’s plastic still goes straight to landfill. Another fifth (20%) is mismanaged – meaning it is not recycled, incinerated, or kept in sealed landfills – putting it at risk of being leaked into rivers, lakes, and the ocean."
+        ],
+        "recycle": [
+            "There is no limit to the amount of times aluminum can be recycled.",
+            "In one year in the United States, the recycling of steel saves enough energy to heat and cool 18 million homes!",
+            "The average American uses seven trees a year in paper, wood, and other products made from trees.",
+            "Each ton (2,000 pounds) of recycled paper can save 17 trees, 380 gallons of oil, , and 7,000 gallons of water.",
+            "Mining and transporting raw materials for glass produces about 385 pounds of waste for every ton of glass that is made. If recycled glass is substituted for half of the raw materials, the waste is cut by more than 80%."
+        ],
+        "compost": [
+            "Composting helps conserve water, decrease landfill methane emissions, and reduce the need for fertilizers and pesticides!",
+            "Soil with compost added to it can hold 2.5 times more water than traditional soil, reducing irrigation needs.",
+            "Composting worms love watermelon!",
+            "Compost piles can reach over 140 degrees Fahrenheit, but you can still compost indoors using specialized bins!",
+            "28% of waste deposited in landfills can be composted. This waste leads to increased emissions of methane, a potent greenhouse gas.",
+            "If everyone in the United States composted, it would be equivalent to removing 7.8 million cars from the road.",
+            "More than half of greenhouse gas emissions from landfills come from wasted food.",
+            "Composting food scraps reduces emissions, and using compost helps us adapt to a changing climate."
+        ]
+    }
 }

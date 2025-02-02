@@ -1,91 +1,109 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState } from "react";
 import "./App.css";
 import data from "./data.json";
 
 function App() {
+  // Slide tracking states
   const [currentSetIndex, setCurrentSetIndex] = useState(0);
-  const [prevSetIndex, setPrevSetIndex] = useState(-1); // -1 to indicate "none" initially
-  const [currentBin, setCurrentBin] = useState("Landfill");
+  const [prevSetIndex, setPrevSetIndex] = useState(-1); // for animations
 
+  // This state will hold the fun fact to show on the fun fact slide.
+  const [currentFunFact, setCurrentFunFact] = useState("");
+
+  // For this example, currentBin is fixed.
+  const currentBin = "Landfill"; // (Can be "Landfill", "Compost", or "Recycle")
+
+  // Background colors per bin
   const binBackgrounds = {
-    Landfill: '#873929',
-    Compost: '#5fa94f',
-    Recycle: '#48ceff',
+    Landfill: "#873929",
+    Compost: "#5fa94f",
+    Recycle: "#48ceff",
   };
 
-  // Build up your imageSets as before
+  // Get all images and fun facts from the imported data
   const images = data.images;
-  const imageSets = [];
+  let funFactsArray = [];
+  let startIndex = 0;
+  let imageFile = "";
+
+  // Set the parameters based on the current bin.
   if (currentBin === "Landfill") {
-    
-    for (let i = 0; i < 9; i += 3) {
-      imageSets.push(images.slice(i, i + 3));
-    }
-    // imageSets.push([
-    //   {
-    //     src: "images/Landfill.png",
-    //     alt: "Every small step counts! Reducing landfill waste by even 10% can prevent millions of tons of methane emissions, a greenhouse gas 28 times more potent than CO₂.Every small step counts! Reducing landfill waste by even 10% can prevent millions of tons of methane emissions, a greenhouse gas 28 times more potent than CO₂.",
-    //   },
-    // ]);
+    startIndex = 0; // images 0..8 (3 slides of 3 images)
+    funFactsArray = data.funFacts.landfill;
+    imageFile = "Landfill.png";
   } else if (currentBin === "Compost") {
-    for (let i = 9; i < 18; i += 3) {
-      imageSets.push(images.slice(i, i + 3));
-    }
-    // imageSets.push([
-    //   {
-    //     src: "images/Compost.png",
-    //     alt: "Congrats! Composting just one ton of organic waste prevents the release of 3 metric tons of CO₂ equivalent into the atmosphere, helping fight climate change!",
-    //   },
-    // ]);
+    startIndex = 9; // images 9..17
+    funFactsArray = data.funFacts.compost;
+    imageFile = "Compost.png";
   } else if (currentBin === "Recycle") {
-    for (let i = 18; i < 27; i += 3) {
-      imageSets.push(images.slice(i, i + 3));
-    }
-    // imageSets.push([
-    //   {
-    //     src: "images/Recycle.png",
-    //     alt: "Great job! Recycling one ton of paper saves 17 trees, 7,000 gallons of water, 380 gallons of oil, and enough energy to power the average home for 6 months.",
-    //   },
-    // ]);
+    startIndex = 18; // images 18..26
+    funFactsArray = data.funFacts.recycle;
+    imageFile = "Recycle.png";
   }
 
-  // Advance the slideshow in one effect, capturing old/current indices together
+  // Initialize currentFunFact on first render (if not set yet)
+  useEffect(() => {
+    if (!currentFunFact && funFactsArray.length > 0) {
+      setCurrentFunFact(funFactsArray[0]);
+    }
+  }, [currentFunFact, funFactsArray]);
+
+  // Build an array of slide sets.
+  // The first several slides are the regular image slides, and the last slide is the fun fact.
+  const imageSets = [];
+  // Regular images: group 9 images into 3 slides (3 images per slide)
+  for (let i = startIndex; i < startIndex + 9; i += 3) {
+    imageSets.push(images.slice(i, i + 3));
+  }
+  // Append the singular fun fact slide.
+  imageSets.push([
+    {
+      src: `images/${imageFile}`,
+      alt: currentFunFact,
+    },
+  ]);
+
+  // Advance the slideshow every 9 seconds.
+  // When we leave the fun fact slide (i.e. when the last slide was current), we update the fun fact.
   useEffect(() => {
     const interval = setInterval(() => {
       setPrevSetIndex(currentSetIndex);
-      setCurrentSetIndex((oldIndex) => (oldIndex + 1) % imageSets.length);
+      setCurrentSetIndex((oldIndex) => {
+        const newIndex = (oldIndex + 1) % imageSets.length;
+        // If we're leaving the fun fact slide (the last slide),
+        // update the current fun fact to the next fact.
+        if (oldIndex === imageSets.length - 1) {
+          setCurrentFunFact((prev) => {
+            const currentIndex = funFactsArray.indexOf(prev);
+            const nextIndex = (currentIndex + 1) % funFactsArray.length;
+            return funFactsArray[nextIndex];
+          });
+        }
+        return newIndex;
+      });
     }, 9000);
 
     return () => clearInterval(interval);
-  }, [currentSetIndex, imageSets.length]);
+  }, [currentSetIndex, imageSets.length, funFactsArray]);
 
   return (
-    <div className="App"
-      style={{
-        backgroundColor: binBackgrounds[currentBin],
-      }}
+    <div
+      className="App"
+      style={{ backgroundColor: binBackgrounds[currentBin] }}
     >
       <div className="container">
         {imageSets.map((set, setIndex) => {
-          const isActive = setIndex === currentSetIndex; 
+          // Determine positioning for the animation.
+          const isActive = setIndex === currentSetIndex;
           const isPrevious = setIndex === prevSetIndex;
-
-          /**
-           * We’ll define default positions:
-           *   1) Slides that are *not* active or previous => appear above the screen (top: -100%)
-           *   2) The currently active slide => center (top: 50%)
-           *   3) The previous slide => transitions down out of the screen (top: 150%)
-           */
-          let topValue = "-100%";
+          let topValue = "-100%"; // off-screen above
           let opacityValue = 0;
 
           if (isActive) {
-            // New slide enters from -100% => 50% (flows downward)
-            topValue = "50%";
+            topValue = "50%"; // centered
             opacityValue = 1;
           } else if (isPrevious) {
-            // Old slide goes from 50% => 150% (flows downward off-screen)
-            topValue = "150%";
+            topValue = "150%"; // off-screen below
             opacityValue = 0;
           }
 
@@ -96,7 +114,7 @@ function App() {
               style={{
                 opacity: opacityValue,
                 top: topValue,
-                transform: "translateY(-50%)", 
+                transform: "translateY(-50%)",
                 transition: "top 3s ease, opacity 3s ease",
               }}
             >
