@@ -1,9 +1,16 @@
 #!/bin/bash
 # This script updates the kiosk.service to use graphical.target,
-# removes the old multi-user.target symlink if it exists,
 # reloads the systemd daemon, enables, and starts the service.
 
 set -e
+
+echo "Updating package lists..."
+sudo apt update
+
+echo "Installing chromium browser..."
+sudo apt install -y chromium-browser
+
+echo "Chromium installation complete!"
 
 SERVICE_FILE="/etc/systemd/system/kiosk.service"
 
@@ -15,12 +22,12 @@ After=graphical.target
 
 [Service]
 User=pi
-WorkingDirectory=/home/pi/3bins_project
-ExecStart=/bin/bash /home/pi/kiosk.sh
+WorkingDirectory=/home/user/Desktop/3bins
+ExecStart=/bin/bash /home/user/Desktop/3bins/kiosk.sh
 Restart=always
 Type=simple
 Environment=DISPLAY=:0
-Environment=XAUTHORITY=/home/pi/.Xauthority
+Environment=XAUTHORITY=/home/user/.Xauthority
 
 [Install]
 WantedBy=graphical.target
