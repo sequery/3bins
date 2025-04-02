@@ -21,7 +21,7 @@ Description=3bins Kiosk Mode
 After=graphical.target
 
 [Service]
-User=pi
+User=user
 WorkingDirectory=/home/user/Desktop/3bins
 ExecStart=/bin/bash /home/user/Desktop/3bins/kiosk.sh
 Restart=always
