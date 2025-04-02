@@ -15,6 +15,14 @@ if ! dpkg -s x11-xserver-utils &> /dev/null; then
     sudo apt install -y x11-xserver-utils
 fi
 
+echo "Checking/installing x11-xserver-utils..."
+if ! dpkg -s libraspberrypi-bin &> /dev/null; then
+    sudo apt update
+    sudo apt install -y libraspberrypi-bin
+fi
+    
+
+
 # Paths for scripts and logs
 DISPLAY_OFF_SCRIPT="/usr/local/bin/display-off.sh"
 DISPLAY_ON_SCRIPT="/usr/local/bin/display-on.sh"
@@ -32,9 +40,9 @@ echo "Writing display-off.sh..."
 sudo tee "$DISPLAY_OFF_SCRIPT" > /dev/null <<'EOF'
 #!/bin/bash
 export DISPLAY=:0
-export XAUTHORITY=/home/user/.Xauthority
-echo "$(date): Turning OFF display" >> /var/log/display-control/display.log
-xset dpms force off || echo "$(date): Failed to turn off display" >> /var/log/display-control/display.log
+export XAUTHORITY=/home/user/.Xauthority#!/bin/bash
+echo "$(date): Turning OFF HDMI display" >> /var/log/display-control/display.log
+/opt/vc/bin/tvservice -o
 EOF
 
 # Write display ON script
@@ -43,9 +51,9 @@ sudo tee "$DISPLAY_ON_SCRIPT" > /dev/null <<'EOF'
 #!/bin/bash
 export DISPLAY=:0
 export XAUTHORITY=/home/user/.Xauthority
-echo "$(date): Turning ON display" >> /var/log/display-control/display.log
-xset dpms force on || echo "$(date): Failed to turn on display" >> /var/log/display-control/display.log
-xset s reset
+echo "$(date): Turning ON HDMI display" >> /var/log/display-control/display.log
+/opt/vc/bin/tvservice -p
+sudo chvt 6 && sudo chvt 7  # Switch VTs to refresh screen
 EOF
 
 # Make both scripts executable
