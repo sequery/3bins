@@ -78,7 +78,7 @@ function App() {
         const newIndex = (oldIndex + 1) % imageSets.length;
         // If we're leaving the fun fact slide (the last slide),
         // update the current fun fact to the next fact.
-        if (oldIndex === imageSets.length - 1) {
+        if (oldIndex === imageSets.length - 2) {
           setCurrentFunFact((prev) => {
             const currentIndex = funFactsArray.indexOf(prev);
             const nextIndex = (currentIndex + 1) % funFactsArray.length;
